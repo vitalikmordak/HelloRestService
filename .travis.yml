@@ -10,8 +10,8 @@ sudo: false
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
-#install: true
-#script: ./mvnw clean install
+install: true
+script: ./mvnw clean install
 
 #improve build speed
 cache:
