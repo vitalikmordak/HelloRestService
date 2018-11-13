@@ -3,6 +3,9 @@ language: java
 #use user-mode
 sudo: false
 
+script:
+- ./mvnw clean install -B
+
 #after build start script, which will collect Jacoco statistics
 after_success:
 - bash <(curl -s https://codecov.io/bash)
