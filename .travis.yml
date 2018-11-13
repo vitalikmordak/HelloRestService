@@ -1,5 +1,7 @@
 #set language
 language: java
+before_install:
+- chmod +x gradlew
 jdk: oraclejdk8
 #use user-mode
 sudo: false
@@ -8,11 +10,8 @@ sudo: false
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
-before_install:
-- chmod +x mvnw
-
-install: true
-script: ./mvnw clean install
+#install: true
+#script: ./mvnw clean install
 
 #improve build speed
 cache:
