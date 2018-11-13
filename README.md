@@ -1,1 +1,1 @@
-# HelloRestService [![Build Status](https://travis-ci.com/vitalikmordak/HelloRestService.svg?branch=master)](https://travis-ci.com/vitalikmordak/HelloRestService)
+# HelloRestService [![Build Status](https://travis-ci.com/vitalikmordak/HelloRestService.svg?branch=master)](https://travis-ci.com/vitalikmordak/HelloRestService) [![codecov](https://codecov.io/gh/vitalikmordak/HelloRestService/branch/master/graph/badge.svg)](https://codecov.io/gh/vitalikmordak/HelloRestService)
