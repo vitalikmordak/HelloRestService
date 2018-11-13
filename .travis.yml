@@ -7,8 +7,10 @@ sudo: false
 #after build start script, which will collect Jacoco statistics
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+
 before_install:
 - chmod +x mvnw
+
 install: true
 script: ./mvnw clean install
 
