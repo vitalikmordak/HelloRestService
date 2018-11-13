@@ -1,7 +1,7 @@
 #set language
 language: java
 before_install:
-- chmod +x gradlew
+- chmod +x mvnw
 jdk: oraclejdk8
 #use user-mode
 sudo: false
@@ -9,6 +9,8 @@ sudo: false
 #after build start script, which will collect Jacoco statistics
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+
+
 
 install: true
 script: ./mvnw clean install
