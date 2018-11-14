@@ -11,9 +11,6 @@ before_install:
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
-#install: true
-#script: ./mvnw clean install
-
 #improve build speed
 cache:
   directories:

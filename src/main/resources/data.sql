@@ -23,7 +23,7 @@ INSERT INTO contacts VALUES(22, 'Viktoria');
 INSERT INTO contacts VALUES(23, 'Elena');
 INSERT INTO contacts VALUES(24, 'Ilona');
 INSERT INTO contacts VALUES(25, 'Liza');
-INSERT INTO contacts VALUES(26, 'Iryna');
+INSERT INTO contacts VALUES(26, 'Sveta');
 INSERT INTO contacts VALUES(27, 'Kristina');
 INSERT INTO contacts VALUES(28, 'Yevhen');
 INSERT INTO contacts VALUES(29, 'Ivan');
