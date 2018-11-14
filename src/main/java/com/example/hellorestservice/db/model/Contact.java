@@ -1,15 +1,21 @@
 package com.example.hellorestservice.db.model;
 
+
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "contacts")
+//@JsonTypeName("Contact")
+//@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+
 
     public long getId() {
         return id;
@@ -39,5 +45,18 @@ public class Contact {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getName());
+    }
+
+    @JsonValue
+    private String toJson() {
+        return toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Contact {" +
+                "\"id\":" + id +
+                ", \"name\":\"" + name + '"' +
+                '}';
     }
 }

@@ -16,14 +16,14 @@ public class ContactService implements IContactService {
 
     @Override
     public List<Contact> findByRegex(String regex) {
-        List<Contact> contacts = contactRepository.findAll();
+        List<Contact> all = contactRepository.findAll();
         Pattern pattern = Pattern.compile(regex);
-        List<Contact> filteredContacts = new ArrayList<>();
+        List<Contact> filtered = new ArrayList<>();
 
-        contacts.forEach(contact -> {
+        all.forEach(contact -> {
             if (!pattern.matcher(contact.getName()).matches())
-                filteredContacts.add(contact);
+                filtered.add(contact);
         });
-        return filteredContacts;
+        return filtered;
     }
 }
