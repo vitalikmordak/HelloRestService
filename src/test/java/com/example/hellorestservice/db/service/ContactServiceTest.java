@@ -6,20 +6,22 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Example;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
+@SpringBootTest
 public class ContactServiceTest {
 
     @TestConfiguration
@@ -33,6 +35,9 @@ public class ContactServiceTest {
 
     @Autowired
     private IContactService contactService;
+
+    @Autowired
+    private CacheManager cacheManager;
 
     @MockBean
     private ContactRepository repository;
@@ -56,7 +61,6 @@ public class ContactServiceTest {
 
         when(repository.findAll()).thenReturn(contactList);
         contactList.remove(contactA);
-        when(repository.findOne(Example.of(contactB))).thenReturn(Optional.of(contactB));
     }
 
     @Test
@@ -67,5 +71,18 @@ public class ContactServiceTest {
     @Test
     public void findAll() {
         assertEquals(contactList, contactService.findAll());
+    }
+
+    @Test
+    public void checkCache() {
+        contactService.findAll();
+        Cache all = cacheManager.getCache("all");
+        Object o = all.get(0).get();
+        assertNotNull(o);
+        System.out.println(o);
+        assertEquals(contactList, o);
+        all.clear();
+        assertNull(all.get(0));
+
     }
 }

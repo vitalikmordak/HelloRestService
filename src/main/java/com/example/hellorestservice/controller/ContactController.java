@@ -21,7 +21,4 @@ public class ContactController {
     public List<Contact> getContactsByRegex(@RequestParam("nameFilter") String nameFilter) {
         return contactService.findByRegex(nameFilter);
     }
-    //TODO: Написать тесты
-    //TODO: 404 обработка страницы
-    //TODO: Добавить кеширование
 }
