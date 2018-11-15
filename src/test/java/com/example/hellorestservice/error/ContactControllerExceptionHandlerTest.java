@@ -24,8 +24,7 @@ public class ContactControllerExceptionHandlerTest {
     @Test
     public void noHandlerFoundException() throws Exception {
         this.mockMvc.perform(get("/hello/contact"))
-                .andDo(print()).andExpect(status().is4xxClientError());
-
+                .andDo(print()).andExpect(status().isNotFound());
     }
 
     @Test
