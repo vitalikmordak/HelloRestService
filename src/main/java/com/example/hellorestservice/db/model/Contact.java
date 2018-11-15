@@ -4,13 +4,14 @@ package com.example.hellorestservice.db.model;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "contacts")
 //@JsonTypeName("Contact")
 //@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
-public class Contact {
+public class Contact implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -48,15 +49,11 @@ public class Contact {
     }
 
     @JsonValue
-    private String toJson() {
-        return toString();
-    }
-
     @Override
     public String toString() {
         return "Contact {" +
-                "\"id\":" + id +
-                ", \"name\":\"" + name + '"' +
+                "id:" + id +
+                ", name:" + name +
                 '}';
     }
 }

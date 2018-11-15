@@ -16,7 +16,7 @@ public class ContactService implements IContactService {
 
     @Override
     public List<Contact> findByRegex(String regex) {
-        List<Contact> all = contactRepository.findAll();
+        List<Contact> all = findAll();
         Pattern pattern = Pattern.compile(regex);
         List<Contact> filtered = new ArrayList<>();
 
@@ -25,5 +25,10 @@ public class ContactService implements IContactService {
                 filtered.add(contact);
         });
         return filtered;
+    }
+
+    @Override
+    public List<Contact> findAll() {
+        return contactRepository.findAll();
     }
 }

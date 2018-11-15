@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IContactService {
     List<Contact> findByRegex(String regex);
+
+    List<Contact> findAll();
 }
